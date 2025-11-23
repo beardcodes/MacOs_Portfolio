@@ -14,7 +14,7 @@ const renderText = (text, className, baseWeight = 400) => {
     <span
       key={i}
       className={className}
-      style={{ fontVariationSettings: `'wght' ${baseWeight}` }}
+      style={{ fontVariationSettings: `"wght" ${baseWeight}` }}
     >
       {char === " " ? "\u00A0" : char}
     </span>
@@ -31,7 +31,7 @@ const setupTextHover = (container, type) => {
     return gsap.to(letter, {
       duration,
       ease: "power2.out",
-      fontVariationSettings: `'wght' ${weight}`,
+      fontVariationSettings: `"wght" ${weight}`,
     });
   };
   const handleMouseMove = (e) => {
@@ -63,6 +63,7 @@ const Welcome = () => {
   const subtitleRef = useRef(null);
 
   useGSAP(() => {
+    console.log("useGSAP is running"); // debug log
     const titleCleanup = setupTextHover(titleRef.current, "title");
     const subtitleCleanup = setupTextHover(subtitleRef.current, "subtitle");
 
